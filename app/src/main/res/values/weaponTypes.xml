@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="itemTypesArray">
+        <item>Dagger</item>
+        <item>Staff</item>
+        <item>Sabre</item>
+        <item>Sword</item>
+        <item>Sword(2H)</item>
+        <item>Katana</item>
+        <item>Katana(2H)</item>
+        <item>Rapier</item>
+        <item>Spear</item>
+        <item>Spear(2H)</item>
+        <item>Axe</item>
+        <item>Axe(2H)</item>
+        <item>Hammer</item>
+        <item>Hammer(2H)</item>
+        <item>Halberd</item>
+        <item>Bow</item>
+    </string-array>
+</resources>

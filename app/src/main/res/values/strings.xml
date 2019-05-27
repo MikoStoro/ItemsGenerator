@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Items Generator</string>
+    <string name="itemtype">itemType</string>
+</resources>

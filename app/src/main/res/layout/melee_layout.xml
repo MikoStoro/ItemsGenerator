@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/meleeNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+    />
+
+    <TextView
+            android:id="@+id/armorValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/magicArmorValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/durabilityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/crossbowDmgText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/reloadText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/meleeDiceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+
+    <TextView
+            android:id="@+id/meleeAccuracyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/meleeCritText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/meleeWeightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+    />
+
+    <TextView
+            android:id="@+id/levelNeeded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+             <Button
+                android:id="@+id/meleePlusStrBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+            />
+
+            <Button
+            android:id="@+id/meleeMinusStrBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+            />
+
+
+
+            <Button
+                android:id="@+id/armorPlusBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+            />
+
+             <Button
+                android:id="@+id/armorMinusBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+            />
+
+        <Button
+                android:id="@+id/crossbowPlusDmgBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+        <Button
+                android:id="@+id/crossbowMinusDmgBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/meleePlusCritBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+    />
+
+        <Button
+                android:id="@+id/meleeMinusCritBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+
+        <Button
+                android:id="@+id/magicArmorPlusBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+        <Button
+                android:id="@+id/magicArmorMinusBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+    </LinearLayout>
+
+<LinearLayout android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <Button
+            android:id="@+id/meleePlusAccBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+    />
+
+    <Button
+            android:id="@+id/meleeMinusAccBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+    />
+
+    <Button
+            android:id="@+id/plusDurabilityBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+    />
+
+    <Button
+            android:id="@+id/minusDurabilityBtn"
+            android:layout_width="164dp"
+            android:layout_height="50dp"
+            android:textSize="10dp"
+    />
+
+
+</LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/crossbowMinusReloadBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+        <Button
+                android:id="@+id/crossbowPlusReloadBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/meleeMinusWeightBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+        <Button
+                android:id="@+id/meleePlusWeightBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+        />
+
+    </LinearLayout>
+
+    <Button
+    android:id="@+id/resetBtn"
+    android:layout_width="328dp"
+    android:layout_height="wrap_content"
+    android:textSize="10dp"
+
+    android:text="Reset"/>
+
+</LinearLayout>
