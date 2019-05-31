@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     var crossbowWeightGain = 2
 
 
-
     var armorDef: Int = 0
     var armorMdef: Int = 0
     var armorDurability: Int = 0
@@ -486,25 +485,23 @@ class MainActivity : AppCompatActivity() {
 
         fun setArmorWindowText() {
             meleeNameText.setText(itemVar)
-            armorValueText.setText(armorDef)
-            magicArmorValueText.setText(armorMdef)
-            durabilityText.setText(armorDurability)
+            armorValueText.setText("Armor: $armorDef")
+            magicArmorValueText.setText("MAgic armor: $armorMdef")
+            durabilityText.setText("Durability: $armorDurability")
             meleeWeightText.setText("Weight: $weaponWeight")
             levelNeededText.setText("Item's level: $level")
         }
 
         fun setCrossbowWindowText() {
             meleeNameText.setText(itemVar)
-            crossbowDmgText.setText(crossbowDamage)
-            reloadText.setText(crossbowReload)
+            crossbowDmgText.setText("Damage: $crossbowDamage")
+            reloadText.setText("Reload: $crossbowReload")
             meleeAccuractText.setText("Accuracy: +$weaponAccuracy")
             meleeCritText.setText("Critical: +$weaponCrit")
             meleeDiceText.setText("K10")
             meleeWeightText.setText("Weight: $weaponWeight")
             levelNeededText.setText("Item's level: $level")
         }
-
-
 
 
         var types = arrayOf("Melee weapons", "Ranged weapons", "Armor")
@@ -520,7 +517,8 @@ class MainActivity : AppCompatActivity() {
 
 
         itemTypeSpinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, types)
-        selectedItemSpinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, meleeWeapons)
+        selectedItemSpinner.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, meleeWeapons)
 
 
         itemTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -539,19 +537,17 @@ class MainActivity : AppCompatActivity() {
                         this@MainActivity,
                         android.R.layout.simple_expandable_list_item_1,
                         meleeWeapons
-
                     )
                     setMeleeWindowText()
                     meleeWindowViewVisibility()
-
                 } else if (typeVar == "Ranged weapons") {
                     selectedItemSpinner.adapter = ArrayAdapter<String>(
                         this@MainActivity,
                         android.R.layout.simple_expandable_list_item_1,
                         rangedWeapons
                     )
-                    setMeleeWindowText()
                     meleeWindowViewVisibility()
+                    setMeleeWindowText()
 
                 } else if (typeVar == "Armor") {
                     selectedItemSpinner.adapter = ArrayAdapter<String>(
@@ -559,8 +555,8 @@ class MainActivity : AppCompatActivity() {
                         android.R.layout.simple_expandable_list_item_1,
                         armorTypes
                     )
-                    setArmorWindowText()
                     armorWindowViewVisibility()
+                    setArmorWindowText()
                 }
             }
         }
@@ -657,9 +653,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 }
-
-                else if (typeVar == "Ranged weapons")
-                {
+                else if (typeVar == "Ranged weapons") {
 
                     itemVar = rangedWeapons.get(position)
 
@@ -682,159 +676,193 @@ class MainActivity : AppCompatActivity() {
 
                     if (itemVar == "Crossbow") {
                         crossbowWindowViewVisibility()
-                    }else{
-                        meleeWindowViewVisibility()
-                    }
-                    assignParameters()
-
-                    meleePlusStrBtn.setOnClickListener {
-                        weaponDamage = weaponDamage + 1
-                        weaponWeight = weaponWeight + (wpnDmgCost - 3)
-                        level = level + wpnDmgCost
-                        setMeleeWindowText()
-                    }
-
-                    meleeMinusStrBtn.setOnClickListener {
-                        level = level - wpnDmgCost
-
-                        if (level > 0) {
-                            weaponDamage = weaponDamage - 1
-                            weaponWeight = weaponWeight - (wpnDmgCost - 3)
-                            setMeleeWindowText()
-                        } else {
-                            level = level + wpnDmgCost
-                            toast("Item's level cannot be lower than 0")
-                        }
-                    }
-
-                    crossbowPlusDmgBtn.setOnClickListener {
-                        level = level + crossbowDmgCost
-                        crossbowDamage = crossbowDamage + 2
-                        weaponWeight = weaponWeight + 1
-                        crossbowReload = crossbowReload + 1
                         setCrossbowWindowText()
-                    }
 
-                    crossbowMinusDmgBtn.setOnClickListener {
-                        level = level - crossbowDmgCost
-                        if (level > 0) {
+                        crossbowPlusDmgBtn.setOnClickListener {
+                            level = level + crossbowDmgCost
                             crossbowDamage = crossbowDamage + 2
                             weaponWeight = weaponWeight + 1
                             crossbowReload = crossbowReload + 1
                             setCrossbowWindowText()
-                        } else {
-                            level = level + crossbowDmgCost
-                            toast("Item's level cannot be lower than 0")
-                        }
-                    }
 
-                    crossbowMinusReloadBtn.setOnClickListener {
-                        level = level + 2
-                        crossbowReload = crossbowReload - 1
-                    }
-
-                    crossbowPlusReloadBtn.setOnClickListener {
-                        level = level - 2
-                        if (level > 0) {
-                            crossbowReload = crossbowReload + 1
-                            setCrossbowWindowText()
-                        } else {
-                            level = level + 2
-                            toast("Item's level cannot be lower than 0")
-                        }
-                    }
-
-                    meleePlusAccBtn.setOnClickListener {
-                        weaponAccuracy = weaponAccuracy + 1
-                        level = level + wpnAccCost
-                        if (itemVar == "Crossbow"){
-                            setCrossbowWindowText()
-                        }else{
-                            setMeleeWindowText()
-                        }
-                    }
-
-                    meleeMinusAccBtn.setOnClickListener {
-                        level = level - wpnAccCost
-                        if (level > 0) {
-                            weaponAccuracy = weaponAccuracy - 1
-                            if (itemVar == "Crossbow"){
-                                setCrossbowWindowText()
-                            }else{
-                                setMeleeWindowText()
-                            }
-                        } else {
-                            level = level + wpnAccCost
-                            toast("Item's level cannot be lower than 0")
-                        }
-
-
-                    }
-
-                    meleePlusCritBtn.setOnClickListener {
-                        weaponCrit = weaponCrit + 1
-                        weaponAccuracy = weaponAccuracy - 2
-                        level = level + wpnCritCost
-
-                        if (itemVar == "Crossbow"){
-                            setCrossbowWindowText()
-                        }else{
-                            setMeleeWindowText()
-                        }
-                    }
-
-                    meleeMinusCritBtn.setOnClickListener {
-                        level = level - wpnCritCost
-                        if (level > 0) {
-                            weaponCrit = weaponCrit - 1
-                            weaponAccuracy = weaponAccuracy + 2
-                            if (itemVar == "Crossbow"){
-                                setCrossbowWindowText()
-                            }else{
-                                setMeleeWindowText()
-                            }
-                        } else {
-                            level = level + wpnCritCost
-                            toast("Item's level cannot be lower than 0")
-                        }
-
-                    }
-
-
-                    meleePlusWeightBtn.setOnClickListener {
-                        weaponWeight = weaponWeight + 1
-                        level = level - 2
-
-                        if (level > 0) {
-                            if (itemVar == "Crossbow"){
-                                setCrossbowWindowText()
-                            }else{
-                                setMeleeWindowText()
-                            }
-                        } else {
-                            level = level + 2
-                            weaponWeight - 1
-                            toast("Item's level cannot be lower than 0")
-                        }
-
-                    }
-
-                    meleeMinusWeightBtn.setOnClickListener {
-                        weaponWeight = weaponWeight - 1
-                        level = level + 2
-
-                        if (weaponWeight < 0) {
-                            level = level - 2
-                            weaponWeight = weaponWeight + 1
-                            toast("Item's weight cannot be lower than 0")
-                        }
-                        else {
-                                if (itemVar == "Crossbow"){
+                            crossbowMinusDmgBtn.setOnClickListener {
+                                level = level - crossbowDmgCost
+                                if (level > 0) {
+                                    crossbowDamage = crossbowDamage + 2
+                                    weaponWeight = weaponWeight + 1
+                                    crossbowReload = crossbowReload + 1
                                     setCrossbowWindowText()
-                                }else{
-                                    setMeleeWindowText()
+                                } else {
+                                    level = level + crossbowDmgCost
+                                    toast("Item's level cannot be lower than 0")
                                 }
+                            }
 
+                            crossbowMinusReloadBtn.setOnClickListener {
+                                level = level + 2
+                                crossbowReload = crossbowReload - 1
+                            }
+
+                            crossbowPlusReloadBtn.setOnClickListener {
+                                level = level - 2
+                                if (level > 0) {
+                                    crossbowReload = crossbowReload + 1
+                                    setCrossbowWindowText()
+                                } else {
+                                    level = level + 2
+                                    toast("Item's level cannot be lower than 0")
+                                }
+                            }
+
+                            meleePlusAccBtn.setOnClickListener {
+                                weaponAccuracy = weaponAccuracy + 1
+                                level = level + wpnAccCost
+
+                                setCrossbowWindowText()
+                            }
+                            meleeMinusAccBtn.setOnClickListener {
+                                level = level - wpnAccCost
+                                if (level > 0) {
+                                    weaponAccuracy = weaponAccuracy - 1
+                                    setCrossbowWindowText()
+                                } else {
+                                    level = level + wpnAccCost
+                                    toast("Item's level cannot be lower than 0")
+                                }
+                            }
+                            meleePlusCritBtn.setOnClickListener {
+                                weaponCrit = weaponCrit + 1
+                                weaponAccuracy = weaponAccuracy - 2
+                                level = level + wpnCritCost
+                                setCrossbowWindowText()
+                            }
+                            meleeMinusCritBtn.setOnClickListener {
+                                level = level - wpnCritCost
+                                if (level > 0) {
+                                    weaponCrit = weaponCrit - 1
+                                    weaponAccuracy = weaponAccuracy + 2
+                                    setCrossbowWindowText()
+                                } else {
+                                    level = level + wpnCritCost
+                                    toast("Item's level cannot be lower than 0")
+                                }
+                            }
+
+                            meleePlusWeightBtn.setOnClickListener {
+                                weaponWeight = weaponWeight + 1
+                                level = level - 2
+
+                                if (level > 0) {
+                                    setCrossbowWindowText()
+                                } else {
+                                    level = level + 2
+                                    weaponWeight - 1
+                                    toast("Item's level cannot be lower than 0")
+                                }
+                            }
+                            meleeMinusWeightBtn.setOnClickListener {
+                                weaponWeight = weaponWeight - 1
+                                level = level + 2
+
+                                if (weaponWeight < 0) {
+                                    level = level - 2
+                                    weaponWeight = weaponWeight + 1
+                                    toast("Item's weight cannot be lower than 0")
+                                } else {
+                                    setCrossbowWindowText()
+                                }
+                            }
+                            resetBtn.setOnClickListener {
+                                assignParameters()
+                                setCrossbowWindowText()
+                            }
+
+                        }
+                    } else {
+                        meleeWindowViewVisibility()
+                        setMeleeWindowText()
+
+                        meleePlusStrBtn.setOnClickListener {
+                            weaponDamage = weaponDamage + 1
+                            weaponWeight = weaponWeight + (wpnDmgCost - 3)
+                            level = level + wpnDmgCost
+                            setMeleeWindowText()
+                        }
+                        meleeMinusStrBtn.setOnClickListener {
+                            level = level - wpnDmgCost
+
+                            if (level > 0) {
+                                weaponDamage = weaponDamage - 1
+                                weaponWeight = weaponWeight - (wpnDmgCost - 3)
+                                setMeleeWindowText()
+                            } else {
+                                level = level + wpnDmgCost
+                                toast("Item's level cannot be lower than 0")
+                            }
+                        }
+
+                        meleePlusAccBtn.setOnClickListener {
+                            weaponAccuracy = weaponAccuracy + 1
+                            level = level + wpnAccCost
+
+                            setMeleeWindowText()
+                        }
+
+                        meleeMinusAccBtn.setOnClickListener {
+                            level = level - wpnAccCost
+                            if (level > 0) {
+                                weaponAccuracy = weaponAccuracy - 1
+                                setMeleeWindowText()
+                            } else {
+                                level = level + wpnAccCost
+                                toast("Item's level cannot be lower than 0")
+                            }
+                        }
+
+                        meleePlusCritBtn.setOnClickListener {
+                            weaponCrit = weaponCrit + 1
+                            weaponAccuracy = weaponAccuracy - 2
+                            level = level + wpnCritCost
+                            setMeleeWindowText()
+                        }
+
+                        meleeMinusCritBtn.setOnClickListener {
+                            level = level - wpnCritCost
+                            if (level > 0) {
+                                weaponCrit = weaponCrit - 1
+                                weaponAccuracy = weaponAccuracy + 2
+                                setMeleeWindowText()
+                            } else {
+                                level = level + wpnCritCost
+                                toast("Item's level cannot be lower than 0")
+                            }
+
+                        }
+
+                        meleePlusWeightBtn.setOnClickListener {
+                            weaponWeight = weaponWeight + 1
+                            level = level - 2
+
+                            if (level > 0) {
+                                setMeleeWindowText()
+                            } else {
+                                level = level + 2
+                                weaponWeight - 1
+                                toast("Item's level cannot be lower than 0")
+                            }
+                        }
+
+                        meleeMinusWeightBtn.setOnClickListener {
+                            weaponWeight = weaponWeight - 1
+                            level = level + 2
+
+                            if (weaponWeight < 0) {
+                                level = level - 2
+                                weaponWeight = weaponWeight + 1
+                                toast("Item's weight cannot be lower than 0")
+                            } else {
+                                setMeleeWindowText()
+                            }
                         }
 
                         resetBtn.setOnClickListener {
@@ -843,16 +871,114 @@ class MainActivity : AppCompatActivity() {
                         }
 
                     }
-                }
 
-                else if (typeVar == "Armor")
-                {
+                }
+                else if (typeVar == "Armor") {
                     itemVar = armorTypes.get(position)
                     assignParameters()
+                    level = 1
+                    setArmorWindowText()
+
+                    armorPlusBtn.setText("+1 Armor, +$armorWeightGain Weight, +$armorDefCost LVL")
+                    armorMinusBtn.setText("-1 Armor, -$armorWeightGain Weight, -$armorDefCost LVL")
+                    magicArmorPlusBtn.setText("+1 Magic Armor, +$armorWeightGain Weight, +$armorMdefCost LVL")
+                    magicArmorMinusBtn.setText("-1 Magic Armor, -$armorWeightGain Weight, -$armorMdefCost LVL")
+                    plusDurabilityBtn.setText("+1 Durability, +$armorDurability Weight, +3 LVL")
+                    minusDurabilityBtn.setText("+1 Durability, +$armorDurability Weight, +3 LVL")
+
+
+                    armorPlusBtn.setOnClickListener {
+                        armorDef += 1
+                        level += armorDefCost
+                        armorWeight += armorWeightGain
+
+                        setArmorWindowText()
+
+                    }
+                    armorMinusBtn.setOnClickListener {
+                        level -= armorDefCost
+                        if (level > 0) {
+                            armorWeight += armorWeightGain
+                            armorDef += 1
+                            setArmorWindowText()
+                        } else {
+                            level = level + armorDefCost
+                            toast("Item's level cannot be lower than 1")
+                        }
+                    }
+                        magicArmorPlusBtn.setOnClickListener {
+                            armorMdef += 1
+                            level += armorMdefCost
+                            armorWeight += armorWeightGain
+
+                            setArmorWindowText()
+                        }
+                        magicArmorMinusBtn.setOnClickListener {
+                            level -= armorMdefCost
+                            if (level > 0) {
+                                armorWeight += armorWeightGain
+                                armorMdef += 1
+                                setArmorWindowText()
+                            } else {
+                                level = level + armorMdefCost
+                                toast("Item's level cannot be lower than 1")
+                            }
+                        }
+                        plusDurabilityBtn.setOnClickListener {
+                            level += 3
+                            armorWeight += armorDurability
+                            armorDurability += 1
+                            setArmorWindowText()
+                        }
+                        minusDurabilityBtn.setOnClickListener {
+                            level -= 3
+                            if (level > 0) {
+                                armorDurability -= 1
+                                armorWeight -= armorDurability
+                                setArmorWindowText()
+                            }else{
+                                level = level + 3
+                                toast("Item's level cannot be lower than 1")
+                            }
+
+                        }
+
+
+                        meleePlusWeightBtn.setOnClickListener {
+                            weaponWeight = weaponWeight + 1
+                            level = level - 2
+
+                            if (level > 0) {
+                                setArmorWindowText()
+                            } else {
+                                level = level + 2
+                                weaponWeight - 1
+                                toast("Item's level cannot be lower than 0")
+                            }
+                        }
+                        meleeMinusWeightBtn.setOnClickListener {
+                            weaponWeight = weaponWeight - 1
+                            level = level + 2
+
+                            if (weaponWeight < 0) {
+                                level = level - 2
+                                weaponWeight = weaponWeight + 1
+                                toast("Item's weight cannot be lower than 0")
+                            } else {
+                                setArmorWindowText()
+                            }
+                        }
+
+                        resetBtn.setOnClickListener {
+                            assignParameters()
+                            setArmorWindowText()
+                        }
+
+                    }
                 }
             }
+
         }
 
     }
 
-}
