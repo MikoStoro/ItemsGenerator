@@ -7,52 +7,60 @@
         android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/meleeNameText"
+            android:id="@+id/blankTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="@dimen/font_size_2"
+            android:text=""
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/armorValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/magicArmorValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/durabilityText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/crossbowDmgText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/reloadText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/meleeDiceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
 
@@ -60,28 +68,40 @@
             android:id="@+id/meleeAccuracyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/meleeCritText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/meleeWeightText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
     />
 
     <TextView
             android:id="@+id/levelNeeded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"/>
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"/>
+
+    <TextView
+            android:id="@+id/blankTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_2"
+            android:text=""
+            android:textColor="@android:color/black"/>
 
 
     <LinearLayout
@@ -90,55 +110,34 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-             <Button
-                android:id="@+id/meleePlusStrBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="@dimen/font_size_1"
-                android:layout_gravity="center"
-            />
 
         <Button
-                android:id="@+id/armorPlusBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"
-        />
+                android:id="@+id/minusBtn1"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="start"
+                android:text="—"/>
+
+        <TextView
+                android:id="@+id/btnText1"
+                android:layout_width="@dimen/text_view_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:textColor="@android:color/black"
+                android:padding="10dp"
+                android:textAlignment="center"/>
 
         <Button
-                android:id="@+id/crossbowPlusDmgBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"
+                android:id="@+id/plusBtn1"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="end"
+                android:text="+"
+                android:textAlignment="center"
         />
 
-            <Button
-            android:id="@+id/meleeMinusStrBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="@dimen/font_size_1"
-            android:layout_gravity="center"
-            />
-
-             <Button
-                android:id="@+id/armorMinusBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"
-            />
-
-
-
-        <Button
-                android:id="@+id/crossbowMinusDmgBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"
-        />
 
 
     </LinearLayout>
@@ -152,35 +151,33 @@
 
 
         <Button
-            android:id="@+id/meleePlusCritBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="10dp"
-            android:gravity="center"
-            android:layout_gravity="center"/>
-
-        <Button
-                android:id="@+id/meleeMinusCritBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
+                android:id="@+id/minusBtn2"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
                 android:layout_gravity="center"
+                android:text="—"
         />
 
+        <TextView
+                android:id="@+id/btnText2"
+                android:layout_width="@dimen/text_view_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:textColor="@android:color/black"
+                android:padding="10dp"
+                android:textAlignment="center"/>
 
         <Button
-                android:id="@+id/magicArmorPlusBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/plusBtn2"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="+"/>
 
-        <Button
-                android:id="@+id/magicArmorMinusBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"/>
 
     </LinearLayout>
 
@@ -190,32 +187,30 @@
               android:gravity="center">
 
     <Button
-            android:id="@+id/meleePlusAccBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="10dp"
-            android:layout_gravity="center"/>
+            android:id="@+id/minusBtn3"
+            android:layout_width="@dimen/button_width_1"
+            android:layout_height="@dimen/text_view_height_1"
+            android:textSize="@dimen/font_size_2"
+            android:layout_gravity="center"
+            android:text="—"/>
+
+    <TextView
+            android:id="@+id/btnText3"
+            android:layout_width="@dimen/text_view_width_1"
+            android:layout_height="@dimen/text_view_height_1"
+            android:textSize="@dimen/font_size_2"
+            android:textColor="@android:color/black"
+            android:padding="10dp"
+            android:textAlignment="center"/>
 
     <Button
-            android:id="@+id/meleeMinusAccBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="10dp"
-            android:layout_gravity="center"/>
+            android:id="@+id/plusBtn3"
+            android:layout_width="@dimen/button_width_1"
+            android:layout_height="@dimen/text_view_height_1"
+            android:textSize="@dimen/font_size_2"
+            android:layout_gravity="center"
+            android:text="+"/>
 
-    <Button
-            android:id="@+id/plusDurabilityBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="10dp"
-            android:layout_gravity="center"/>
-
-    <Button
-            android:id="@+id/minusDurabilityBtn"
-            android:layout_width="164dp"
-            android:layout_height="50dp"
-            android:textSize="10dp"
-            android:layout_gravity="center"/>
 
 
 </LinearLayout>
@@ -227,18 +222,33 @@
             android:gravity="center">
 
         <Button
-                android:id="@+id/crossbowMinusReloadBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/minusBtn4"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="center"
+                android:text="—"/>
+
+
+        <TextView
+                android:id="@+id/btnText4"
+                android:layout_width="@dimen/text_view_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:textColor="@android:color/black"
+                android:padding="10dp"
+                android:textAlignment="center"/>
 
         <Button
-                android:id="@+id/crossbowPlusReloadBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center" />
+
+                android:id="@+id/plusBtn4"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="center"
+                android:text="+"/>
+
+
 
     </LinearLayout>
 
@@ -248,26 +258,37 @@
                   android:gravity="center">
 
         <Button
-                android:id="@+id/meleeMinusWeightBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/plusBtn5"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="center"
+                android:text="+"/>
+
+        <TextView
+                android:id="@+id/btnText5"
+                android:layout_width="@dimen/text_view_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:textColor="@android:color/black"
+                android:padding="10dp"
+                android:textAlignment="center"/>
 
         <Button
-                android:id="@+id/meleePlusWeightBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/minusBtn5"
+                android:layout_width="@dimen/button_width_1"
+                android:layout_height="@dimen/text_view_height_1"
+                android:textSize="@dimen/font_size_2"
+                android:layout_gravity="center"
+                android:text="—"/>
 
     </LinearLayout>
 
     <Button
     android:id="@+id/resetBtn"
-    android:layout_width="328dp"
+    android:layout_width="400dp"
     android:layout_height="wrap_content"
-    android:textSize="10dp"
+    android:textSize="@dimen/font_size_2"
     android:layout_gravity="center"
     android:text="Reset"/>
 

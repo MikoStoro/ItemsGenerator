@@ -22,7 +22,8 @@
     <Spinner
             android:layout_width="253dp"
             android:layout_height="29dp"
-            android:id="@+id/itemTypeSpinner"/>
+            android:id="@+id/itemTypeSpinner"
+    />
     <TextView
             android:text="Item:"
             android:textColor="@android:color/black"
@@ -46,17 +47,6 @@
                 android:id="@+id/meleeViewWindow"
                 layout = "@layout/melee_layout"
         />
-
-        <include
-            android:id="@+id/armorViewWindow"
-            layout = "@layout/armor_layout"
-            />
-
-        <include
-            android:id="@+id/crossbowViewWindow"
-            layout= "@layout/crossbow_layout"
-            />
-
     </LinearLayout>
 
 

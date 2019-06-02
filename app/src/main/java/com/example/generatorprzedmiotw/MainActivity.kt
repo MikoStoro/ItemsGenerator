@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.melee_layout.*
+import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import org.w3c.dom.Text
 
@@ -30,8 +31,6 @@ class MainActivity : AppCompatActivity() {
     var crossbowReload: Int = 0
 
     var crossbowDmgCost: Int = 0
-    var crossbowReloadSubCost: Int = 0
-    var crossbowWeightGain = 2
 
 
     var armorDef: Int = 0
@@ -44,8 +43,6 @@ class MainActivity : AppCompatActivity() {
     var armorMdefCost: Int = 0
 
     var level: Int = 0
-    val weightSubCost: Int = 2
-    val critIncCost: Int = 2
 
 
     var typeVar: String = "Melee weapons"
@@ -337,52 +334,39 @@ class MainActivity : AppCompatActivity() {
         var itemTypeSpinner: Spinner
         var selectedItemSpinner: Spinner
 
-        var meleeNameText: TextView
+        // var meleeNameText: TextView
         var meleeDiceText: TextView
         var meleeAccuractText: TextView
         var meleeCritText: TextView
         var meleeWeightText: TextView
         var levelNeededText: TextView
 
-        var meleePlusStrBtn: Button
-        var meleeMinusStrBtn: Button
-        var meleePlusCritBtn: Button
-        var meleeMinusCritBtn: Button
-        var meleePlusAccBtn: Button
-        var meleeMinusAccBtn: Button
-        var meleeMinusWeightBtn: Button
-        var meleePlusWeightBtn: Button
-
-        var armorPlusBtn = findViewById<Button>(R.id.armorPlusBtn)
-        var armorMinusBtn = findViewById<Button>(R.id.armorMinusBtn)
-        var magicArmorPlusBtn = findViewById<Button>(R.id.magicArmorPlusBtn)
-        var magicArmorMinusBtn = findViewById<Button>(R.id.magicArmorMinusBtn)
-        var plusDurabilityBtn = findViewById<Button>(R.id.plusDurabilityBtn)
-        var minusDurabilityBtn = findViewById<Button>(R.id.minusDurabilityBtn)
-
-        var crossbowPlusDmgBtn = findViewById<Button>(R.id.crossbowPlusDmgBtn)
-        var crossbowMinusDmgBtn = findViewById<Button>(R.id.crossbowMinusDmgBtn)
-        var crossbowPlusReloadBtn = findViewById<Button>(R.id.crossbowPlusReloadBtn)
-        var crossbowMinusReloadBtn = findViewById<Button>(R.id.crossbowMinusReloadBtn)
-
-
         var resetBtn: Button
 
-        meleeNameText = findViewById(R.id.meleeNameText)
+        // meleeNameText = findViewById(R.id.meleeNameText)
         meleeDiceText = findViewById(R.id.meleeDiceText)
         meleeAccuractText = findViewById(R.id.meleeAccuracyText)
         meleeCritText = findViewById(R.id.meleeCritText)
         meleeWeightText = findViewById(R.id.meleeWeightText)
         levelNeededText = findViewById(R.id.levelNeeded)
 
-        meleePlusStrBtn = findViewById(R.id.meleePlusStrBtn)
-        meleeMinusStrBtn = findViewById(R.id.meleeMinusStrBtn)
-        meleePlusCritBtn = findViewById(R.id.meleePlusCritBtn)
-        meleeMinusCritBtn = findViewById(R.id.meleeMinusCritBtn)
-        meleePlusAccBtn = findViewById(R.id.meleePlusAccBtn)
-        meleeMinusAccBtn = findViewById(R.id.meleeMinusAccBtn)
-        meleePlusWeightBtn = findViewById(R.id.meleePlusWeightBtn)
-        meleeMinusWeightBtn = findViewById(R.id.meleeMinusWeightBtn)
+        var plusBtn1 = findViewById<Button>(R.id.plusBtn1)
+        var plusBtn2 = findViewById<Button>(R.id.plusBtn2)
+        var plusBtn3 = findViewById<Button>(R.id.plusBtn3)
+        var plusBtn4 = findViewById<Button>(R.id.plusBtn4)
+        var plusBtn5 = findViewById<Button>(R.id.plusBtn5)
+
+        var minusBtn1 = findViewById<Button>(R.id.minusBtn1)
+        var minusBtn2 = findViewById<Button>(R.id.minusBtn2)
+        var minusBtn3 = findViewById<Button>(R.id.minusBtn3)
+        var minusBtn4 = findViewById<Button>(R.id.minusBtn4)
+        var minusBtn5 = findViewById<Button>(R.id.minusBtn5)
+
+        var btnText1 = findViewById<TextView>(R.id.btnText1)
+        var btnText2 = findViewById<TextView>(R.id.btnText2)
+        var btnText3 = findViewById<TextView>(R.id.btnText3)
+        var btnText4 = findViewById<TextView>(R.id.btnText4)
+        var btnText5 = findViewById<TextView>(R.id.btnText5)
 
         resetBtn = findViewById(R.id.resetBtn)
 
@@ -400,22 +384,10 @@ class MainActivity : AppCompatActivity() {
             magicArmorValueText.visibility = View.GONE
             durabilityText.visibility = View.GONE
 
-            meleePlusStrBtn.visibility = View.VISIBLE
-            meleeMinusStrBtn.visibility = View.VISIBLE
-            meleePlusCritBtn.visibility = View.VISIBLE
-            meleeMinusCritBtn.visibility = View.VISIBLE
-            meleePlusAccBtn.visibility = View.VISIBLE
-            meleeMinusAccBtn.visibility = View.VISIBLE
-            armorPlusBtn.visibility = View.GONE
-            armorMinusBtn.visibility = View.GONE
-            magicArmorPlusBtn.visibility = View.GONE
-            magicArmorMinusBtn.visibility = View.GONE
-            plusDurabilityBtn.visibility = View.GONE
-            minusDurabilityBtn.visibility = View.GONE
-            crossbowPlusDmgBtn.visibility = View.GONE
-            crossbowMinusDmgBtn.visibility = View.GONE
-            crossbowPlusReloadBtn.visibility = View.GONE
-            crossbowMinusReloadBtn.visibility = View.GONE
+            plusBtn4.visibility = View.GONE
+            minusBtn4.visibility = View.GONE
+            btnText4.visibility = View.GONE
+
         }
 
         fun crossbowWindowViewVisibility() {
@@ -428,22 +400,9 @@ class MainActivity : AppCompatActivity() {
             magicArmorValueText.visibility = View.GONE
             durabilityText.visibility = View.GONE
 
-            meleePlusStrBtn.visibility = View.GONE
-            meleeMinusStrBtn.visibility = View.GONE
-            meleePlusCritBtn.visibility = View.VISIBLE
-            meleeMinusCritBtn.visibility = View.VISIBLE
-            meleeMinusAccBtn.visibility = View.VISIBLE
-            meleePlusAccBtn.visibility = View.VISIBLE
-            armorPlusBtn.visibility = View.GONE
-            armorMinusBtn.visibility = View.GONE
-            magicArmorPlusBtn.visibility = View.GONE
-            magicArmorMinusBtn.visibility = View.GONE
-            plusDurabilityBtn.visibility = View.GONE
-            minusDurabilityBtn.visibility = View.GONE
-            crossbowPlusDmgBtn.visibility = View.VISIBLE
-            crossbowMinusDmgBtn.visibility = View.VISIBLE
-            crossbowPlusReloadBtn.visibility = View.VISIBLE
-            crossbowMinusReloadBtn.visibility = View.VISIBLE
+            plusBtn4.visibility = View.VISIBLE
+            minusBtn4.visibility = View.VISIBLE
+            btnText4.visibility = View.VISIBLE
         }
 
         fun armorWindowViewVisibility() {
@@ -456,26 +415,14 @@ class MainActivity : AppCompatActivity() {
             magicArmorValueText.visibility = View.VISIBLE
             durabilityText.visibility = View.VISIBLE
 
-            meleePlusStrBtn.visibility = View.GONE
-            meleeMinusStrBtn.visibility = View.GONE
-            meleePlusCritBtn.visibility = View.GONE
-            meleeMinusCritBtn.visibility = View.GONE
-            meleeMinusAccBtn.visibility = View.GONE
-            meleePlusAccBtn.visibility = View.GONE
-            armorPlusBtn.visibility = View.VISIBLE
-            armorMinusBtn.visibility = View.VISIBLE
-            magicArmorPlusBtn.visibility = View.VISIBLE
-            magicArmorMinusBtn.visibility = View.VISIBLE
-            plusDurabilityBtn.visibility = View.VISIBLE
-            minusDurabilityBtn.visibility = View.VISIBLE
-            crossbowPlusDmgBtn.visibility = View.GONE
-            crossbowMinusDmgBtn.visibility = View.GONE
-            crossbowPlusReloadBtn.visibility = View.GONE
-            crossbowMinusReloadBtn.visibility = View.GONE
+            plusBtn4.visibility = View.GONE
+            minusBtn4.visibility = View.GONE
+            btnText4.visibility = View.GONE
+
         }
 
         fun setMeleeWindowText() {
-            meleeNameText.setText(itemVar)
+            // meleeNameText.setText(itemVar)
             meleeDiceText.setText("Dice: $weaponDamage$weaponDice")
             meleeAccuractText.setText("Accuracy: +$weaponAccuracy")
             meleeCritText.setText("Critical: +$weaponCrit")
@@ -484,7 +431,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun setArmorWindowText() {
-            meleeNameText.setText(itemVar)
+            // meleeNameText.setText(itemVar)
             armorValueText.setText("Armor: $armorDef")
             magicArmorValueText.setText("Magic armor: $armorMdef")
             durabilityText.setText("Durability: $armorDurability")
@@ -493,7 +440,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun setCrossbowWindowText() {
-            meleeNameText.setText(itemVar)
+            // meleeNameText.setText(itemVar)
             crossbowDmgText.setText("Damage: $crossbowDamage")
             reloadText.setText("Reload: $crossbowReload")
             meleeAccuractText.setText("Accuracy: +$weaponAccuracy")
@@ -516,7 +463,8 @@ class MainActivity : AppCompatActivity() {
         var armorTypes = arrayOf("Magic Robes", "Leather Armor", "Chainmail", "Plate Armor")
 
 
-        itemTypeSpinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, types)
+        itemTypeSpinner.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, types)
         selectedItemSpinner.adapter =
             ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, meleeWeapons)
 
@@ -579,23 +527,22 @@ class MainActivity : AppCompatActivity() {
 
                     setMeleeWindowText()
 
-                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Wgt, +$wpnDmgCost Lvl")
-                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Wgt, -$wpnDmgCost Lvl")
-                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost Lvl")
-                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost Lvl")
-                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost Lvl")
-                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost Lvl")
-                    meleePlusWeightBtn.setText("+1 Wgt, -2 Lvl")
-                    meleeMinusWeightBtn.setText("-1 Wgt, +2 Lvl")
+                    btnText1.setText("1 $weaponDice, ${wpnDmgCost - 3} Weight, $wpnDmgCost Lvl")
 
-                    meleePlusStrBtn.setOnClickListener {
+                    btnText2.setText("1 Accuracy, $wpnAccCost Lvl")
+
+                    btnText3.setText("1 Crit, 2 Accuracy, $wpnCritCost Lvl")
+                    btnText5.setText("1 Weight, 2 Lvl")
+
+
+                    plusBtn1.setOnClickListener {
                         weaponDamage = weaponDamage + 1
                         weaponWeight = weaponWeight + (wpnDmgCost - 3)
                         level = level + wpnDmgCost
                         setMeleeWindowText()
                     }
 
-                    meleeMinusStrBtn.setOnClickListener {
+                    minusBtn1.setOnClickListener {
                         level = level - wpnDmgCost
 
                         if (level > 0) {
@@ -608,13 +555,13 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
-                    meleePlusAccBtn.setOnClickListener {
+                    plusBtn2.setOnClickListener {
                         weaponAccuracy = weaponAccuracy + 1
                         level = level + wpnAccCost
                         setMeleeWindowText()
                     }
 
-                    meleeMinusAccBtn.setOnClickListener {
+                    minusBtn2.setOnClickListener {
                         level = level - wpnAccCost
                         if (level > 0) {
                             weaponAccuracy = weaponAccuracy - 1
@@ -627,14 +574,14 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    meleePlusCritBtn.setOnClickListener {
+                    plusBtn3.setOnClickListener {
                         weaponCrit = weaponCrit + 1
                         weaponAccuracy = weaponAccuracy - 2
                         level = level + wpnCritCost
                         setMeleeWindowText()
                     }
 
-                    meleeMinusCritBtn.setOnClickListener {
+                    minusBtn3.setOnClickListener {
                         level = level - wpnCritCost
                         if (level > 0) {
                             weaponCrit = weaponCrit - 1
@@ -646,14 +593,40 @@ class MainActivity : AppCompatActivity() {
                         }
 
                     }
+                    plusBtn5.setOnClickListener {
+                        weaponWeight = weaponWeight + 1
+                        level = level - 2
+
+                        if (level > 0) {
+                            setMeleeWindowText()
+                        } else {
+                            level = level + 2
+                            weaponWeight - 1
+                            toast("Item's level cannot be lower than 0")
+                        }
+                    }
+
+                    minusBtn5.setOnClickListener {
+                        weaponWeight = weaponWeight - 1
+                        level = level + 2
+
+                        if (weaponWeight < 0) {
+                            level = level - 2
+                            weaponWeight = weaponWeight + 1
+                            toast("Item's weight cannot be lower than 0")
+                        } else {
+                            setMeleeWindowText()
+                        }
+                    }
+
 
                     resetBtn.setOnClickListener {
                         assignParameters()
+                        level = 1
                         setMeleeWindowText()
                     }
 
-                }
-                else if (typeVar == "Ranged weapons") {
+                } else if (typeVar == "Ranged weapons") {
 
                     itemVar = rangedWeapons.get(position)
 
@@ -661,31 +634,29 @@ class MainActivity : AppCompatActivity() {
 
                     assignParameters()
 
-                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Wgt, +$wpnDmgCost Lvl")
-                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Wgt, -$wpnDmgCost Lvl")
-                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost Lvl")
-                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost Lvl")
-                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost Lvl")
-                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost Lvl")
-                    meleePlusWeightBtn.setText("+1 Wgt, -2 Lvl")
-                    meleeMinusWeightBtn.setText("-1 Wgt, +2 Lvl")
-                    crossbowPlusDmgBtn.setText("+2 Damage, +1 Reload, +1 Weight, +3 Lvl")
-                    crossbowMinusDmgBtn.setText("-2 Damage, -1 Reload, -1 Weight, -3 Lvl")
-                    crossbowMinusReloadBtn.setText("-1 Reload, +2 Lvl")
-                    crossbowPlusReloadBtn.setText("+1 Reload, -2 Lvl")
+                    btnText1.setText("1 $weaponDice, ${wpnDmgCost - 3} Weight, $wpnDmgCost Lvl")
+                    btnText2.setText("1 Accuracy, $wpnAccCost Lvl")
+                    btnText3.setText("1 Crit, 2 Accuracy, $wpnCritCost Lvl")
+                    btnText5.setText("1 Weight, 2 Lvl")
+
+
+
+
 
                     if (itemVar == "Crossbow") {
                         crossbowWindowViewVisibility()
+                        btnText1.setText("2 Damage, 1 Reload, 1 Weight, 3 Lvl")
+                        btnText4.setText("1 Reload, 2 Lvl")
                         setCrossbowWindowText()
 
-                        crossbowPlusDmgBtn.setOnClickListener {
+                        plusBtn1.setOnClickListener {
                             level = level + crossbowDmgCost
                             crossbowDamage = crossbowDamage + 2
                             weaponWeight = weaponWeight + 1
                             crossbowReload = crossbowReload + 1
                             setCrossbowWindowText()
 
-                            crossbowMinusDmgBtn.setOnClickListener {
+                            minusBtn1.setOnClickListener {
                                 level = level - crossbowDmgCost
                                 if (level > 0) {
                                     crossbowDamage = crossbowDamage + 2
@@ -698,12 +669,12 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
 
-                            crossbowMinusReloadBtn.setOnClickListener {
+                            plusBtn4.setOnClickListener {
                                 level = level + 2
                                 crossbowReload = crossbowReload - 1
                             }
 
-                            crossbowPlusReloadBtn.setOnClickListener {
+                            minusBtn4.setOnClickListener {
                                 level = level - 2
                                 if (level > 0) {
                                     crossbowReload = crossbowReload + 1
@@ -714,13 +685,13 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
 
-                            meleePlusAccBtn.setOnClickListener {
+                            plusBtn2.setOnClickListener {
                                 weaponAccuracy = weaponAccuracy + 1
                                 level = level + wpnAccCost
 
                                 setCrossbowWindowText()
                             }
-                            meleeMinusAccBtn.setOnClickListener {
+                            minusBtn2.setOnClickListener {
                                 level = level - wpnAccCost
                                 if (level > 0) {
                                     weaponAccuracy = weaponAccuracy - 1
@@ -730,13 +701,13 @@ class MainActivity : AppCompatActivity() {
                                     toast("Item's level cannot be lower than 0")
                                 }
                             }
-                            meleePlusCritBtn.setOnClickListener {
+                            plusBtn4.setOnClickListener {
                                 weaponCrit = weaponCrit + 1
                                 weaponAccuracy = weaponAccuracy - 2
                                 level = level + wpnCritCost
                                 setCrossbowWindowText()
                             }
-                            meleeMinusCritBtn.setOnClickListener {
+                            minusBtn4.setOnClickListener {
                                 level = level - wpnCritCost
                                 if (level > 0) {
                                     weaponCrit = weaponCrit - 1
@@ -748,7 +719,7 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
 
-                            meleePlusWeightBtn.setOnClickListener {
+                            plusBtn5.setOnClickListener {
                                 weaponWeight = weaponWeight + 1
                                 level = level - 2
 
@@ -760,7 +731,7 @@ class MainActivity : AppCompatActivity() {
                                     toast("Item's level cannot be lower than 0")
                                 }
                             }
-                            meleeMinusWeightBtn.setOnClickListener {
+                            minusBtn5.setOnClickListener {
                                 weaponWeight = weaponWeight - 1
                                 level = level + 2
 
@@ -782,13 +753,13 @@ class MainActivity : AppCompatActivity() {
                         meleeWindowViewVisibility()
                         setMeleeWindowText()
 
-                        meleePlusStrBtn.setOnClickListener {
+                        plusBtn1.setOnClickListener {
                             weaponDamage = weaponDamage + 1
                             weaponWeight = weaponWeight + (wpnDmgCost - 3)
                             level = level + wpnDmgCost
                             setMeleeWindowText()
                         }
-                        meleeMinusStrBtn.setOnClickListener {
+                        minusBtn1.setOnClickListener {
                             level = level - wpnDmgCost
 
                             if (level > 0) {
@@ -801,14 +772,14 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
 
-                        meleePlusAccBtn.setOnClickListener {
+                        plusBtn2.setOnClickListener {
                             weaponAccuracy = weaponAccuracy + 1
                             level = level + wpnAccCost
 
                             setMeleeWindowText()
                         }
 
-                        meleeMinusAccBtn.setOnClickListener {
+                        minusBtn2.setOnClickListener {
                             level = level - wpnAccCost
                             if (level > 0) {
                                 weaponAccuracy = weaponAccuracy - 1
@@ -819,14 +790,14 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
 
-                        meleePlusCritBtn.setOnClickListener {
+                        plusBtn3.setOnClickListener {
                             weaponCrit = weaponCrit + 1
                             weaponAccuracy = weaponAccuracy - 2
                             level = level + wpnCritCost
                             setMeleeWindowText()
                         }
 
-                        meleeMinusCritBtn.setOnClickListener {
+                        minusBtn3.setOnClickListener {
                             level = level - wpnCritCost
                             if (level > 0) {
                                 weaponCrit = weaponCrit - 1
@@ -839,7 +810,7 @@ class MainActivity : AppCompatActivity() {
 
                         }
 
-                        meleePlusWeightBtn.setOnClickListener {
+                        plusBtn5.setOnClickListener {
                             weaponWeight = weaponWeight + 1
                             level = level - 2
 
@@ -852,7 +823,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
 
-                        meleeMinusWeightBtn.setOnClickListener {
+                        minusBtn5.setOnClickListener {
                             weaponWeight = weaponWeight - 1
                             level = level + 2
 
@@ -867,27 +838,24 @@ class MainActivity : AppCompatActivity() {
 
                         resetBtn.setOnClickListener {
                             assignParameters()
+                            level = 1
                             setMeleeWindowText()
                         }
 
                     }
 
-                }
-                else if (typeVar == "Armor") {
+                } else if (typeVar == "Armor") {
                     itemVar = armorTypes.get(position)
 
                     level = 1
                     assignParameters()
 
-                    armorPlusBtn.setText("+1 Armor, +$armorWeightGain Wgt, +$armorDefCost Lvl")
-                    armorMinusBtn.setText("-1 Armor, -$armorWeightGain Wgt, -$armorDefCost Lvl")
-                    magicArmorPlusBtn.setText("+1 Magic Armor, +$armorWeightGain Wgt, +$armorMdefCost Lvl")
-                    magicArmorMinusBtn.setText("-1 Magic Armor, -$armorWeightGain Wgt, -$armorMdefCost Lvl")
-                    plusDurabilityBtn.setText("+1 Durability, +$armorDurability Wgt, +3 Lvl")
-                    minusDurabilityBtn.setText("+1 Durability, +$armorDurability Wgt, +3 Lvl")
+                    btnText1.setText("1 Armor, $armorWeightGain Weight, $armorDefCost Lvl")
+                    btnText2.setText("1 Magic Armor, $armorWeightGain Weight, $armorMdefCost Lvl")
+                    btnText3.setText("1 Durability, $armorDurability Weight, 3 Lvl")
                     setArmorWindowText()
 
-                    armorPlusBtn.setOnClickListener {
+                    plusBtn1.setOnClickListener {
                         armorDef += 1
                         level += armorDefCost
                         armorWeight += armorWeightGain
@@ -895,7 +863,7 @@ class MainActivity : AppCompatActivity() {
                         setArmorWindowText()
 
                     }
-                        armorMinusBtn.setOnClickListener {
+                    minusBtn1.setOnClickListener {
                         level -= armorDefCost
                         if (level > 0) {
                             armorWeight += armorWeightGain
@@ -906,77 +874,78 @@ class MainActivity : AppCompatActivity() {
                             toast("Item's level cannot be lower than 1")
                         }
                     }
-                        magicArmorPlusBtn.setOnClickListener {
-                            armorMdef += 1
-                            level += armorMdefCost
+                    plusBtn2.setOnClickListener {
+                        armorMdef += 1
+                        level += armorMdefCost
+                        armorWeight += armorWeightGain
+
+                        setArmorWindowText()
+                    }
+                    minusBtn2.setOnClickListener {
+                        level -= armorMdefCost
+                        if (level > 0) {
                             armorWeight += armorWeightGain
-
+                            armorMdef += 1
                             setArmorWindowText()
+                        } else {
+                            level = level + armorMdefCost
+                            toast("Item's level cannot be lower than 1")
                         }
-                        magicArmorMinusBtn.setOnClickListener {
-                            level -= armorMdefCost
-                            if (level > 0) {
-                                armorWeight += armorWeightGain
-                                armorMdef += 1
-                                setArmorWindowText()
-                            } else {
-                                level = level + armorMdefCost
-                                toast("Item's level cannot be lower than 1")
-                            }
-                        }
-                        plusDurabilityBtn.setOnClickListener {
-                            level += 3
-                            armorWeight += armorDurability
-                            armorDurability += 1
+                    }
+                    plusBtn3.setOnClickListener {
+                        level += 3
+                        armorWeight += armorDurability
+                        armorDurability += 1
+                        setArmorWindowText()
+                    }
+                    minusBtn3.setOnClickListener {
+                        level -= 3
+                        if (level > 0) {
+                            armorDurability -= 1
+                            armorWeight -= armorDurability
                             setArmorWindowText()
-                        }
-                        minusDurabilityBtn.setOnClickListener {
-                            level -= 3
-                            if (level > 0) {
-                                armorDurability -= 1
-                                armorWeight -= armorDurability
-                                setArmorWindowText()
-                            }else{
-                                level = level + 3
-                                toast("Item's level cannot be lower than 1")
-                            }
-
-                        }
-                        meleePlusWeightBtn.setOnClickListener {
-                            weaponWeight = weaponWeight + 1
-                            level = level - 2
-
-                            if (level > 0) {
-                                setArmorWindowText()
-                            } else {
-                                level = level + 2
-                                weaponWeight - 1
-                                toast("Item's level cannot be lower than 0")
-                            }
-                        }
-                        meleeMinusWeightBtn.setOnClickListener {
-                            weaponWeight = weaponWeight - 1
-                            level = level + 2
-
-                            if (weaponWeight < 0) {
-                                level = level - 2
-                                weaponWeight = weaponWeight + 1
-                                toast("Item's weight cannot be lower than 0")
-                            } else {
-                                setArmorWindowText()
-                            }
-                        }
-
-                        resetBtn.setOnClickListener {
-                            assignParameters()
-                            setArmorWindowText()
+                        } else {
+                            level = level + 3
+                            toast("Item's level cannot be lower than 1")
                         }
 
                     }
+                    plusBtn5.setOnClickListener {
+                        weaponWeight = weaponWeight + 1
+                        level = level - 2
+
+                        if (level > 0) {
+                            setArmorWindowText()
+                        } else {
+                            level = level + 2
+                            weaponWeight - 1
+                            toast("Item's level cannot be lower than 0")
+                        }
+                    }
+                    minusBtn5.setOnClickListener {
+                        weaponWeight = weaponWeight - 1
+                        level = level + 2
+
+                        if (weaponWeight < 0) {
+                            level = level - 2
+                            weaponWeight = weaponWeight + 1
+                            toast("Item's weight cannot be lower than 0")
+                        } else {
+                            setArmorWindowText()
+                        }
+                    }
+
+                    resetBtn.setOnClickListener {
+                        assignParameters()
+                        level = 1
+                        setArmorWindowText()
+                    }
+
                 }
             }
-
         }
 
     }
+}
+
 

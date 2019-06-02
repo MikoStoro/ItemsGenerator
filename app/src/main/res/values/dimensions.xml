@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="font_size_1">15sp</dimen>
-    <dimen name="fint_size_2">20sp</dimen>
+    <dimen name="font_size_2">20sp</dimen>
+    <dimen name="text_view_width_1">250dp</dimen>
+    <dimen name="text_view_height_1">50dp</dimen>
+    <dimen name="button_width_1">70dp</dimen>
 </resources>
