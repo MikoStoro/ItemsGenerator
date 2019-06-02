@@ -283,7 +283,7 @@ class MainActivity : AppCompatActivity() {
                 wpnDmgCost = 3
             }
 
-            "Magic robes" -> {
+            "Magic Robes" -> {
                 armorDef = 1
                 armorMdef = 2
                 armorDurability = 2
@@ -294,7 +294,7 @@ class MainActivity : AppCompatActivity() {
                 armorWeightGain = 2
             }
 
-            "Leather armor" -> {
+            "Leather Armor" -> {
                 armorDef = 2
                 armorMdef = 2
                 armorDurability = 2
@@ -486,7 +486,7 @@ class MainActivity : AppCompatActivity() {
         fun setArmorWindowText() {
             meleeNameText.setText(itemVar)
             armorValueText.setText("Armor: $armorDef")
-            magicArmorValueText.setText("MAgic armor: $armorMdef")
+            magicArmorValueText.setText("Magic armor: $armorMdef")
             durabilityText.setText("Durability: $armorDurability")
             meleeWeightText.setText("Weight: $weaponWeight")
             levelNeededText.setText("Item's level: $level")
@@ -579,14 +579,14 @@ class MainActivity : AppCompatActivity() {
 
                     setMeleeWindowText()
 
-                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Weight, +$wpnDmgCost LVL")
-                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Weight, -$wpnDmgCost LVL")
-                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost LVL")
-                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost LVL")
-                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost LVL")
-                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost LVL")
-                    meleePlusWeightBtn.setText("+1 Weight, -2 LVL")
-                    meleeMinusWeightBtn.setText("-1 Weight, +2 LVL")
+                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Wgt, +$wpnDmgCost Lvl")
+                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Wgt, -$wpnDmgCost Lvl")
+                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost Lvl")
+                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost Lvl")
+                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost Lvl")
+                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost Lvl")
+                    meleePlusWeightBtn.setText("+1 Wgt, -2 Lvl")
+                    meleeMinusWeightBtn.setText("-1 Wgt, +2 Lvl")
 
                     meleePlusStrBtn.setOnClickListener {
                         weaponDamage = weaponDamage + 1
@@ -661,18 +661,18 @@ class MainActivity : AppCompatActivity() {
 
                     assignParameters()
 
-                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Weight, +$wpnDmgCost LVL")
-                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Weight, -$wpnDmgCost LVL")
-                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost LVL")
-                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost LVL")
-                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost LVL")
-                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost LVL")
-                    meleePlusWeightBtn.setText("+1 Weight, -2 LVL")
-                    meleeMinusWeightBtn.setText("-1 Weight, +2 LVL")
-                    crossbowPlusDmgBtn.setText("+2 Damage, +1 Reload, +1 Weight, +3 LVL")
-                    crossbowMinusDmgBtn.setText("-2 Damage, -1 Reload, -1 Weight, -3 LVL")
-                    crossbowMinusReloadBtn.setText("-1 Reload, +2 LVL")
-                    crossbowPlusReloadBtn.setText("+1 Reload, -2 LVL")
+                    meleePlusStrBtn.setText("+1 $weaponDice, +${wpnDmgCost - 3} Wgt, +$wpnDmgCost Lvl")
+                    meleeMinusStrBtn.setText("-1 $weaponDice, -${wpnDmgCost - 3} Wgt, -$wpnDmgCost Lvl")
+                    meleePlusAccBtn.setText("+1 Accuracy, +$wpnAccCost Lvl")
+                    meleeMinusAccBtn.setText("-1 Accuracy, -$wpnAccCost Lvl")
+                    meleePlusCritBtn.setText("+1 Crit, -2 Accuracy, +$wpnCritCost Lvl")
+                    meleeMinusCritBtn.setText("-1 Crit, +2 Accuracy -$wpnCritCost Lvl")
+                    meleePlusWeightBtn.setText("+1 Wgt, -2 Lvl")
+                    meleeMinusWeightBtn.setText("-1 Wgt, +2 Lvl")
+                    crossbowPlusDmgBtn.setText("+2 Damage, +1 Reload, +1 Weight, +3 Lvl")
+                    crossbowMinusDmgBtn.setText("-2 Damage, -1 Reload, -1 Weight, -3 Lvl")
+                    crossbowMinusReloadBtn.setText("-1 Reload, +2 Lvl")
+                    crossbowPlusReloadBtn.setText("+1 Reload, -2 Lvl")
 
                     if (itemVar == "Crossbow") {
                         crossbowWindowViewVisibility()
@@ -875,17 +875,17 @@ class MainActivity : AppCompatActivity() {
                 }
                 else if (typeVar == "Armor") {
                     itemVar = armorTypes.get(position)
-                    assignParameters()
+
                     level = 1
+                    assignParameters()
+
+                    armorPlusBtn.setText("+1 Armor, +$armorWeightGain Wgt, +$armorDefCost Lvl")
+                    armorMinusBtn.setText("-1 Armor, -$armorWeightGain Wgt, -$armorDefCost Lvl")
+                    magicArmorPlusBtn.setText("+1 Magic Armor, +$armorWeightGain Wgt, +$armorMdefCost Lvl")
+                    magicArmorMinusBtn.setText("-1 Magic Armor, -$armorWeightGain Wgt, -$armorMdefCost Lvl")
+                    plusDurabilityBtn.setText("+1 Durability, +$armorDurability Wgt, +3 Lvl")
+                    minusDurabilityBtn.setText("+1 Durability, +$armorDurability Wgt, +3 Lvl")
                     setArmorWindowText()
-
-                    armorPlusBtn.setText("+1 Armor, +$armorWeightGain Weight, +$armorDefCost LVL")
-                    armorMinusBtn.setText("-1 Armor, -$armorWeightGain Weight, -$armorDefCost LVL")
-                    magicArmorPlusBtn.setText("+1 Magic Armor, +$armorWeightGain Weight, +$armorMdefCost LVL")
-                    magicArmorMinusBtn.setText("-1 Magic Armor, -$armorWeightGain Weight, -$armorMdefCost LVL")
-                    plusDurabilityBtn.setText("+1 Durability, +$armorDurability Weight, +3 LVL")
-                    minusDurabilityBtn.setText("+1 Durability, +$armorDurability Weight, +3 LVL")
-
 
                     armorPlusBtn.setOnClickListener {
                         armorDef += 1
@@ -895,7 +895,7 @@ class MainActivity : AppCompatActivity() {
                         setArmorWindowText()
 
                     }
-                    armorMinusBtn.setOnClickListener {
+                        armorMinusBtn.setOnClickListener {
                         level -= armorDefCost
                         if (level > 0) {
                             armorWeight += armorWeightGain
@@ -942,8 +942,6 @@ class MainActivity : AppCompatActivity() {
                             }
 
                         }
-
-
                         meleePlusWeightBtn.setOnClickListener {
                             weaponWeight = weaponWeight + 1
                             level = level - 2

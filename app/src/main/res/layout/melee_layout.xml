@@ -86,30 +86,40 @@
 
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
              <Button
                 android:id="@+id/meleePlusStrBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
-                android:textSize="10dp"
+                android:textSize="@dimen/font_size_1"
+                android:layout_gravity="center"
             />
+
+        <Button
+                android:id="@+id/armorPlusBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+                android:layout_gravity="center"
+        />
+
+        <Button
+                android:id="@+id/crossbowPlusDmgBtn"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:textSize="10dp"
+                android:layout_gravity="center"
+        />
 
             <Button
             android:id="@+id/meleeMinusStrBtn"
             android:layout_width="164dp"
             android:layout_height="50dp"
-            android:textSize="10dp"
-            />
-
-
-
-            <Button
-                android:id="@+id/armorPlusBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
+            android:textSize="@dimen/font_size_1"
+            android:layout_gravity="center"
             />
 
              <Button
@@ -117,20 +127,17 @@
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
+                android:layout_gravity="center"
             />
 
-        <Button
-                android:id="@+id/crossbowPlusDmgBtn"
-                android:layout_width="164dp"
-                android:layout_height="50dp"
-                android:textSize="10dp"
-        />
+
 
         <Button
                 android:id="@+id/crossbowMinusDmgBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
+                android:layout_gravity="center"
         />
 
 
@@ -139,7 +146,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
 
 
@@ -148,13 +156,15 @@
             android:layout_width="164dp"
             android:layout_height="50dp"
             android:textSize="10dp"
-    />
+            android:gravity="center"
+            android:layout_gravity="center"/>
 
         <Button
                 android:id="@+id/meleeMinusCritBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
+                android:layout_gravity="center"
         />
 
 
@@ -163,48 +173,49 @@
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center"/>
 
         <Button
                 android:id="@+id/magicArmorMinusBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center"/>
 
     </LinearLayout>
 
 <LinearLayout android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="horizontal">
+              android:orientation="horizontal"
+              android:gravity="center">
 
     <Button
             android:id="@+id/meleePlusAccBtn"
             android:layout_width="164dp"
             android:layout_height="50dp"
             android:textSize="10dp"
-    />
+            android:layout_gravity="center"/>
 
     <Button
             android:id="@+id/meleeMinusAccBtn"
             android:layout_width="164dp"
             android:layout_height="50dp"
             android:textSize="10dp"
-    />
+            android:layout_gravity="center"/>
 
     <Button
             android:id="@+id/plusDurabilityBtn"
             android:layout_width="164dp"
             android:layout_height="50dp"
             android:textSize="10dp"
-    />
+            android:layout_gravity="center"/>
 
     <Button
             android:id="@+id/minusDurabilityBtn"
             android:layout_width="164dp"
             android:layout_height="50dp"
             android:textSize="10dp"
-    />
+            android:layout_gravity="center"/>
 
 
 </LinearLayout>
@@ -212,41 +223,43 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
         <Button
                 android:id="@+id/crossbowMinusReloadBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center"/>
 
         <Button
                 android:id="@+id/crossbowPlusReloadBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center" />
 
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:orientation="horizontal">
+                  android:orientation="horizontal"
+                  android:gravity="center">
 
         <Button
                 android:id="@+id/meleeMinusWeightBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center"/>
 
         <Button
                 android:id="@+id/meleePlusWeightBtn"
                 android:layout_width="164dp"
                 android:layout_height="50dp"
                 android:textSize="10dp"
-        />
+                android:layout_gravity="center"/>
 
     </LinearLayout>
 
@@ -255,7 +268,7 @@
     android:layout_width="328dp"
     android:layout_height="wrap_content"
     android:textSize="10dp"
-
+    android:layout_gravity="center"
     android:text="Reset"/>
 
 </LinearLayout>
