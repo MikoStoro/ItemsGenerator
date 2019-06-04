@@ -5,4 +5,5 @@
     <dimen name="text_view_width_1">250dp</dimen>
     <dimen name="text_view_height_1">50dp</dimen>
     <dimen name="button_width_1">70dp</dimen>
+    <dimen name="padding_1">0dp</dimen>
 </resources>

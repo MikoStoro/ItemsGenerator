@@ -7,5 +7,8 @@
         android:textSize="@dimen/font_size_2"
         android:gravity="left"
         android:textColor="#000000"
-        android:padding="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
 />

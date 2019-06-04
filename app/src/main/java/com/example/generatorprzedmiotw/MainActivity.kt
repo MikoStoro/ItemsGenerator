@@ -464,9 +464,9 @@ class MainActivity : AppCompatActivity() {
 
 
         itemTypeSpinner.adapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, types)
+            ArrayAdapter<String>(this, R.layout.spinner_item, types)
         selectedItemSpinner.adapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, meleeWeapons)
+            ArrayAdapter<String>(this, R.layout.spinner_item, meleeWeapons)
 
 
         itemTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -483,7 +483,7 @@ class MainActivity : AppCompatActivity() {
                 if (typeVar == "Melee weapons") {
                     selectedItemSpinner.adapter = ArrayAdapter<String>(
                         this@MainActivity,
-                        android.R.layout.simple_expandable_list_item_1,
+                        R.layout.spinner_item,
                         meleeWeapons
                     )
                     setMeleeWindowText()
@@ -491,7 +491,7 @@ class MainActivity : AppCompatActivity() {
                 } else if (typeVar == "Ranged weapons") {
                     selectedItemSpinner.adapter = ArrayAdapter<String>(
                         this@MainActivity,
-                        android.R.layout.simple_expandable_list_item_1,
+                        R.layout.spinner_item,
                         rangedWeapons
                     )
                     meleeWindowViewVisibility()
@@ -500,7 +500,7 @@ class MainActivity : AppCompatActivity() {
                 } else if (typeVar == "Armor") {
                     selectedItemSpinner.adapter = ArrayAdapter<String>(
                         this@MainActivity,
-                        android.R.layout.simple_expandable_list_item_1,
+                        R.layout.spinner_item,
                         armorTypes
                     )
                     armorWindowViewVisibility()
